@@ -11,4 +11,8 @@ public class Sin extends Unary  {
   {
     return "sin";
   }
+
+  public int getPriority() {
+    return 3;
+  }
 }

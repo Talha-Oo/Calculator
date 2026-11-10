@@ -11,4 +11,8 @@ public class Exp extends Unary
   {
     return "exp";
   }
+
+  public int getPriority() {
+    return 3;
+  }
 }

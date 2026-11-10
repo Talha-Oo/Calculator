@@ -11,4 +11,8 @@ public class Cos extends Unary {
   {
     return "cos";
   }
+
+  public int getPriority() {
+    return 3;
+  }
 }

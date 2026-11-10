@@ -10,4 +10,8 @@ public class Addition extends Binary{
   {
     return "+";
   }
+
+  public int getPriority() {
+    return 1;
+  }
 }

@@ -11,4 +11,8 @@ public class Multiplication extends Binary {
   {
     return "*";
   }
+
+  public int getPriority() {
+    return 2;
+  }
 }

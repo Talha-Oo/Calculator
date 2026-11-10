@@ -10,4 +10,8 @@ public class Log extends Unary
   {
     return "log";
   }
+
+  public int getPriority() {
+    return 3;
+  }
 }

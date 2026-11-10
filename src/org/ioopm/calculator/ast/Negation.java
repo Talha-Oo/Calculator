@@ -11,4 +11,8 @@ public class Negation extends Unary
   {
     return "-";
   }
+
+  public int getPriority() {
+    return 3;
+  }
 }

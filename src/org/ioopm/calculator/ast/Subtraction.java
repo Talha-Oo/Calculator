@@ -11,4 +11,8 @@ public class Subtraction extends Binary {
   {
     return "-";
   }
+
+  public int getPriority() {
+    return 1;
+  }
 }

@@ -11,4 +11,9 @@ public abstract class SymbolicExpression {
   {
     throw new RuntimeException("getName() called on expression with no operator");
   }
+
+  public int getPriority()
+  {
+    return 0;
+  }
 }

@@ -7,4 +7,8 @@ public class Variable extends Atom {
   {
     this.identifier = identifier;
   }
+
+  public int getPriority() {
+    return 4;
+  }
 }
