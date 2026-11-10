@@ -7,4 +7,9 @@ public class Constant extends Atom {
   {
     this.value = value;
   }
+
+  public boolean isConstant()
+  {
+    return true;
+  }
 }

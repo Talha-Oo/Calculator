@@ -6,4 +6,9 @@ public class Subtraction extends Binary {
   {
     super(lhs, rhs);
   }
+
+  public String getName()
+  {
+    return "-";
+  }
 }

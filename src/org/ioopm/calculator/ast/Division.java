@@ -6,4 +6,9 @@ public class Division extends Binary {
   {
     super(lhs, rhs);
   }
+
+  public String getName()
+  {
+    return "/";
+  }
 }

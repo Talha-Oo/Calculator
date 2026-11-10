@@ -5,4 +5,9 @@ public class Assignment extends Binary {
   {
     super(lhs, rhs);
   }
+
+  public String getName()
+  {
+    return "=";
+  }
 }

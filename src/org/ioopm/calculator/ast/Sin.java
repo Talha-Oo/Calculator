@@ -6,4 +6,9 @@ public class Sin extends Unary  {
   {
     super(expr);
   }
+
+  public String getName()
+  {
+    return "sin";
+  }
 }
