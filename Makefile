@@ -6,7 +6,7 @@ run:
 
 test:
 	javac -d src -sourcepath src src/Test.java
-	java -cp src Test
+	java -cp src -enableassertions Test
 
 clean:
 	rm -rf classes
