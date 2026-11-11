@@ -16,4 +16,9 @@ public class Constant extends Atom {
   public int getPriority() {
     return 4;
   }
+
+  public double getValue()
+  {
+    return value;
+  }
 }

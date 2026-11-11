@@ -16,4 +16,9 @@ public abstract class SymbolicExpression {
   {
     return 0;
   }
+
+  public double getValue()
+  {
+    throw new RuntimeException("getvalue() called on expression which is not a constant");
+  }
 }
