@@ -11,4 +11,9 @@ public class Variable extends Atom {
   public int getPriority() {
     return 4;
   }
+
+  public String toString()
+  {
+    return identifier;
+  }
 }

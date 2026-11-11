@@ -11,42 +11,60 @@ public abstract class Binary extends SymbolicExpression
     this.rhs = rhs;
   }
 
-  public String toString() 
+  private boolean lhsNeedParentheses()
   {
-    int prioLhs = lhs.getPriority();
+    return lhs.getPriority() < this.getPriority();
+  }
+
+  private String printLhs()
+  {
+    if(lhsNeedParentheses())
+    {
+      return "(" + lhs.toString() + ")";
+    }
+
+    return lhs.toString();
+  }
+
+  private boolean rhsNeedParentheses()
+  {
     int prioRhs = rhs.getPriority();
     int prioParent = this.getPriority();
-
     String operator = this.getName();
 
-    if (prioLhs < prioParent) 
+    if (rhs.getPriority() < this.getPriority()) 
     {
-      if (prioRhs < prioParent) 
-      {
-        return "(" + lhs.toString() + ")" + " " + operator + " " + "(" + rhs.toString() + ")";
-      }
-
-      return "(" + lhs.toString() + ")" + " " + operator + " " + rhs.toString();
-
-    } 
-    else if (prioRhs < prioParent) 
-    {
-      return lhs.toString() + " " + operator + " " + "(" + rhs.toString() + ")";
-    } 
-    else
-    {
-      if (prioRhs == prioParent)
-      {
-        if (operator.equals("-"))
-        {
-          return lhs.toString() + " " + operator + " " + "(" + rhs.toString() + ")";
-        }
-        else if (operator.equals("/") && (rhs.getName().equals("*") || rhs.getName().equals("/")))
-        {
-          return lhs.toString() + " " + operator + " " + "(" + rhs.toString() + ")";
-        }
-      }
-      return lhs.toString() + " " + operator + " " + rhs.toString();
+      return true;
     }
+
+    if (prioRhs == prioParent)
+    {
+      if (operator.equals("-"))
+      {
+        return true;
+      }
+      else if (operator.equals("/") && (rhs.getName().equals("*") || rhs.getName().equals("/")))
+      {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  private String printRhs()
+  {
+    if(rhsNeedParentheses())
+    {
+      return "(" + rhs.toString() + ")";
+    }
+
+    return rhs.toString();
+  }
+
+  public String toString() 
+  {
+    String operator = this.getName();
+    return printLhs() + " " + operator + " " + printRhs();
   }
 }
