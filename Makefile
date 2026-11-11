@@ -4,5 +4,9 @@ all:
 run:
 	java -cp classes org.ioopm.calculator.Calculator
 
+test:
+	javac -d src -sourcepath src src/Test.java
+	java -cp src Test
+
 clean:
 	rm -rf classes
