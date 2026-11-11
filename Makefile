@@ -10,3 +10,4 @@ test:
 
 clean:
 	rm -rf classes
+	rm -f src/org/ioopm/calculator/ast/*.class
