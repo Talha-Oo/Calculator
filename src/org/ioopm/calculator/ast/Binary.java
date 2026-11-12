@@ -11,6 +11,16 @@ public abstract class Binary extends SymbolicExpression
     this.rhs = rhs;
   }
 
+  public SymbolicExpression getLhs()
+  {
+    return lhs;
+  }
+
+  public SymbolicExpression getRhs()
+  {
+    return rhs;
+  }  
+
   private boolean lhsNeedParentheses()
   {
     return lhs.getPriority() < this.getPriority();

@@ -1,6 +1,6 @@
 package org.ioopm.calculator.ast;
-
-public class Variable extends Atom {
+public class Variable extends Atom 
+{
   private String identifier;
 
   public Variable(String identifier)
@@ -32,5 +32,21 @@ public class Variable extends Atom {
   public String toString()
   {
     return identifier;
+  }
+
+  public SymbolicExpression eval(Environment vars)
+  {
+    SymbolicExpression value = vars.get(this);
+    if(value != null)
+    {
+      return value;
+    }
+    
+    return this;
+  }
+
+  public int hashCode()
+  {
+    return identifier.hashCode();
   }
 }

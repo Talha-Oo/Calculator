@@ -1,6 +1,7 @@
 package org.ioopm.calculator.ast;
 
-public class Assignment extends Binary {
+public class Assignment extends Binary 
+{
   public Assignment(SymbolicExpression lhs, SymbolicExpression rhs)
   {
     super(lhs, rhs);
@@ -11,4 +12,12 @@ public class Assignment extends Binary {
     return "=";
   }
 
+  public SymbolicExpression eval(Environment vars) 
+  {
+    SymbolicExpression lhs = super.getLhs().eval(vars);
+    Variable var = (Variable) super.getRhs();
+
+    vars.put(var, lhs);
+    return lhs; 
+  }
 }

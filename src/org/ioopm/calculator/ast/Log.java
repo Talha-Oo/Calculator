@@ -14,4 +14,18 @@ public class Log extends Unary
   public int getPriority() {
     return 3;
   }
+
+  public SymbolicExpression eval(Environment vars) 
+  {
+    SymbolicExpression expr = super.getExpr().eval(vars);
+
+    if (expr.isConstant()) 
+    {
+      return new Constant(Math.log(expr.getValue()));
+    } 
+    else 
+    {
+      return new Log(expr);
+    }
+  }
 }

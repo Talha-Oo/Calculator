@@ -29,6 +29,11 @@ public abstract class Unary extends SymbolicExpression {
     return false;
   }
   
+  public SymbolicExpression getExpr()
+  {
+    return expr;
+  }
+
   public String toString() {
     return this.getName() + "(" + this.expr.toString() + ")";
   }
