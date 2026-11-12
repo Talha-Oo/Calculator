@@ -14,6 +14,19 @@ public class Test {
     // }
   }
 
+  public void testEvaluating(SymbolicExpression expected, SymbolicExpression e) 
+  {
+    SymbolicExpression r = e.eval();
+    if (r.equals(expected)) 
+    {
+      System.out.println("Passed: " + e);
+    } 
+    else 
+    {
+      System.out.println("Error: expected '" + expected + "' but got '" + e + "'");
+    }
+  }
+
   public static void main(String[] args) {
 
     Test test = new Test();
@@ -53,5 +66,25 @@ public class Test {
     Multiplication m2 = new Multiplication(a2, s2);
     Division d2 = new Division(m2, new Constant(2));
     test.testPrinting("(p + q) * (r - 4.0) / 2.0", d2);
+
+    // 5 + 37 = 42
+    test.testEvaluating(new Constant(42), 
+                        new Addition(new Constant(5), new Constant(37)));
+
+    // (3 + 2) * 4 = 5 * 4 = 20
+    test.testEvaluating(new Constant(20),
+                        new Multiplication(new Addition(new Constant(3), new Constant(2)),
+                                          new Constant(4)));
+
+    // (2 + 3) + x = 5 + x
+    test.testEvaluating(new Addition(new Constant(5), new Variable("x")),
+                        new Addition(new Addition(new Constant(2), new Constant(3)),
+                                    new Variable("x")));
+
+    // (10 - 4) / (2 + 1) = 6 / 3 = 2                                
+    test.testEvaluating(new Constant(2), 
+                        new Division(new Subtraction(new Constant(10), new Constant(4)),
+                                    new Addition(new Constant(2), 
+                                    new Constant(1))));                               
   }
 }
