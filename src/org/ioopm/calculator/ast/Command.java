@@ -6,4 +6,9 @@ public abstract class Command extends SymbolicExpression
   {
     throw new RuntimeException("Commands shall not be evaluated.");
   }
+  
+  public boolean isCommand()
+  {
+    return true;
+  }
 }
