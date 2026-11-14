@@ -43,7 +43,7 @@ public class NamedConstant extends Atom
   
   public SymbolicExpression eval(Environment vars) 
   {
-    return this;
+    return new Constant(this.value);
   } 
 
   public String toString() {
