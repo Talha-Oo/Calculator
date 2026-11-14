@@ -1,4 +1,3 @@
-// import java.util.HashMap;
 // import org.ioopm.calculator.ast.*;
 
 // public class Test {

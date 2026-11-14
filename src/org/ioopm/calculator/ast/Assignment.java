@@ -15,6 +15,13 @@ public class Assignment extends Binary
   public SymbolicExpression eval(Environment vars) 
   {
     SymbolicExpression lhs = super.getLhs().eval(vars);
+    SymbolicExpression rhs = super.getRhs();
+
+    if(rhs.isNamedConstant())
+    {
+      throw new IllegalAssignmentException("Error: cannot redefine named constant '" + rhs.toString() + "'");
+    }
+
     Variable var = (Variable) super.getRhs();
 
     vars.put(var, lhs);
