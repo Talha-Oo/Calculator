@@ -94,6 +94,7 @@ public class CalculatorParser {
             return Quit.instance();
         } else if (this.st.sval.equals("Clear")) {
             return Clear.instance();
+            
         } else {
             return Vars.instance();
         }
