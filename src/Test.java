@@ -1,4 +1,3 @@
-// import java.util.HashMap;
 // import org.ioopm.calculator.ast.*;
 
 // public class Test {
@@ -101,5 +100,31 @@
 //     test.testEvaluating(new Constant(26), 
 //                         new Multiplication(new Addition(new Constant(5), new Variable("x")),
 //                         new Constant(2)),vars5);
+
+//     NamedConstant pi = new NamedConstant("pi", Math.PI);
+//     NamedConstant e = new NamedConstant("e", Math.E);
+//     NamedConstant answer = new NamedConstant("Answer", 42);
+//     NamedConstant L = new NamedConstant("L", 6.022140857 * Math.pow(10, 23));
+
+//     Environment vars6 = new Environment();
+
+//     test.testEvaluating(new Constant(Math.PI), pi, vars6);
+//     test.testEvaluating(new Constant(Math.E), e, vars6);
+//     test.testEvaluating(new Constant(42), answer, vars6);
+//     test.testEvaluating(new Constant(6.022140857 * Math.pow(10, 23)), L, vars6);
+
+//     Assignment assignment = new Assignment(new Constant(5), new Variable("x"));
+//     test.testEvaluating(new Constant(5), assignment, vars6);
+
+//     try 
+//     {
+//       Assignment invalid = new Assignment(new Constant(43), answer);
+//       invalid.eval(vars6);
+//       System.out.println("Error: expected IllegalAssignmentException");
+//     } 
+//     catch (IllegalAssignmentException e1) 
+//     {
+//       System.out.println("Passed: cannot redefine named constant");
+//     }
 //   }
 // }

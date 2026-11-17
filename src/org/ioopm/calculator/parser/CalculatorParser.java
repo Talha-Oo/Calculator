@@ -231,7 +231,14 @@ public class CalculatorParser {
 
                 result = unary();
             } else {
-                result = identifier();
+                if(Constants.namedConstants.containsKey(this.st.sval))
+                {
+                    result = new NamedConstant(this.st.sval, Constants.namedConstants.get(this.st.sval));
+                }
+                else
+                {
+                    result = identifier();
+                }
             }
         } else {
             this.st.pushBack();
