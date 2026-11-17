@@ -24,7 +24,7 @@ public class Calculator {
             if (result == Quit.instance()) {
                 break;
             } else if (result == Vars.instance()) {
-                store.values();
+                store.Vars();
             //  } else if (result == Clear.instance())) Vars v {
             //         store.clear();
             //     }

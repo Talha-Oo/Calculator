@@ -1,5 +1,5 @@
 package org.ioopm.calculator.ast;
 
-public class Clear {
+public abstract class Clear {
     
 }
