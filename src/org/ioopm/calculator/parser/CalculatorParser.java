@@ -20,10 +20,10 @@ public class CalculatorParser {
     private static char DIVISION = '/';
     private static String NEG = "Neg";
     private static char NEGATION = '-';
-    private static String SIN = "Sin";
-    private static String COS = "Cos";
-    private static String LOG = "Log";
-    private static String EXP = "Exp";
+    private static String SIN = "sin";
+    private static String COS = "cos";
+    private static String LOG = "log";
+    private static String EXP = "exp";
     private static char ASSIGNMENT = '=';
 
     // unallowerdVars is used to check if variabel name that we

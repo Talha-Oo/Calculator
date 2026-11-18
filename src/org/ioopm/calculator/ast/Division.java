@@ -1,5 +1,7 @@
 package org.ioopm.calculator.ast;
 
+import org.ioopm.calculator.parser.IllegalExpressionException;
+
 public class Division extends Binary 
 {
   public Division(SymbolicExpression lhs, SymbolicExpression rhs)
@@ -23,6 +25,11 @@ public class Division extends Binary
 
     if (lhs.isConstant() && rhs.isConstant()) 
     {
+      if(rhs.getValue() == 0)
+      {
+        throw new IllegalExpressionException("Division by zero");
+      }
+      
       return new Constant(lhs.getValue() / rhs.getValue());
     } 
     else 
