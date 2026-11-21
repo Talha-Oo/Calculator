@@ -37,16 +37,16 @@ public class Constant extends Atom {
     return this.value == other.value;
   }
   
-  public SymbolicExpression eval(Environment vars) 
-  {
-    return this;
-  } 
-
-  // @Override 
-  // public Constant eval(Environment vars) 
+  // public SymbolicExpression eval(Environment vars) 
   // {
   //   return this;
   // } 
+
+  @Override 
+  public Constant eval(Environment vars) 
+  {
+    return this;
+  } 
 
   public String toString() {
     return String.valueOf(this.value);

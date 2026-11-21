@@ -20,10 +20,15 @@ public class Calculator {
     final CalculatorParser parser = new CalculatorParser();
     final Environment store = new Environment();
 
+    int expressionsEntered = 0;
+    int successfullyEvaluated = 0;
+    int fullyEvaluated = 0;
+
     while (true) {
       // läser från stdin
       System.out.print("Please enter an Expresison: ");
       String input = System.console().readLine();
+      
       // skicka till parser och hantera varje case
       SymbolicExpression result;
       try {
@@ -35,6 +40,10 @@ public class Calculator {
 
       if (result.isCommand()) {
         if (result == Quit.instance()) {
+          System.out.println("Goodbye!");
+          System.out.println("Expressions entered: " + expressionsEntered);
+          System.out.println("Successfully evaluated: " + successfullyEvaluated);
+          System.out.println("Fully evaluated: " + fullyEvaluated);
           break;
         } else if (result == Clear.instance()) {
           store.clear();
@@ -43,19 +52,39 @@ public class Calculator {
           System.out.println("(" + list + ")");
         }
       } else {
+
+        expressionsEntered++;
+        Environment backup = new Environment(store);
         try {
           SymbolicExpression ans = result.eval(store);
           Variable v = new Variable("ans");
+
           store.put(v, ans);
+          if (ans.isConstant()) {
+            fullyEvaluated++;
+          }
+
           System.out.println("(" + ans + ")");
+          successfullyEvaluated++;
 
         } catch (SyntaxErrorException e) {
+
           System.out.println("Invalid syntax, try again");
+          store.clear();
+          store.putAll(backup);
 
         } catch (IllegalExpressionException e) {
+
           System.out.println("Illegal expression, try again");
+          store.clear();
+          store.putAll(backup);
+
         } catch (IllegalAssignmentException e) {
+
           System.out.println(e.getMessage());
+          store.clear();
+          store.putAll(backup);
+
         }
       }
     }

@@ -1,60 +1,47 @@
 package org.ioopm.calculator.ast;
 
-public abstract class Binary extends SymbolicExpression 
-{
+public abstract class Binary extends SymbolicExpression {
   private SymbolicExpression lhs;
   private SymbolicExpression rhs;
 
-  public Binary(SymbolicExpression lhs, SymbolicExpression rhs) 
-  {
+  public Binary(SymbolicExpression lhs, SymbolicExpression rhs) {
     this.lhs = lhs;
     this.rhs = rhs;
   }
 
-  public SymbolicExpression getLhs()
-  {
+  public SymbolicExpression getLhs() {
     return lhs;
   }
 
-  public SymbolicExpression getRhs()
-  {
+  public SymbolicExpression getRhs() {
     return rhs;
-  }  
+  }
 
-  private boolean lhsNeedParentheses()
-  {
+  private boolean lhsNeedParentheses() {
     return lhs.getPriority() < this.getPriority();
   }
 
-  private String printLhs()
-  {
-    if(lhsNeedParentheses())
-    {
+  private String printLhs() {
+    if (lhsNeedParentheses()) {
       return "(" + lhs.toString() + ")";
     }
 
     return lhs.toString();
   }
 
-  private boolean rhsNeedParentheses()
-  {
+  private boolean rhsNeedParentheses() {
     int prioRhs = rhs.getPriority();
     int prioParent = this.getPriority();
     String operator = this.getName();
 
-    if (rhs.getPriority() < this.getPriority()) 
-    {
+    if (rhs.getPriority() < this.getPriority()) {
       return true;
     }
 
-    if (prioRhs == prioParent)
-    {
-      if (operator.equals("-"))
-      {
+    if (prioRhs == prioParent) {
+      if (operator.equals("-")) {
         return true;
-      }
-      else if (operator.equals("/") && (rhs.getName().equals("*") || rhs.getName().equals("/")))
-      {
+      } else if (operator.equals("/") && (rhs.getName().equals("*") || rhs.getName().equals("/"))) {
         return true;
       }
     }
@@ -62,40 +49,31 @@ public abstract class Binary extends SymbolicExpression
     return false;
   }
 
-  private String printRhs()
-  {
-    if(rhsNeedParentheses())
-    {
+  private String printRhs() {
+    if (rhsNeedParentheses()) {
       return "(" + rhs.toString() + ")";
     }
 
     return rhs.toString();
   }
 
-  public boolean equals(Object other) 
-  {
-    if (other instanceof Binary) 
-    {
+  public boolean equals(Object other) {
+    if (other instanceof Binary) {
       return this.equals((Binary) other);
-    } 
-    else 
-    {
+    } else {
       return false;
     }
   }
 
-  public boolean equals(Binary other) 
-  {
-    if(this.getName().equals(other.getName()))
-    {
+  public boolean equals(Binary other) {
+    if (this.getName().equals(other.getName())) {
       return this.rhs.equals(other.rhs) && this.lhs.equals(other.lhs);
     }
 
     return false;
   }
 
-  public String toString() 
-  {
+  public String toString() {
     String operator = this.getName();
     return printLhs() + " " + operator + " " + printRhs();
   }
