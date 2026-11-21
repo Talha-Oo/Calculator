@@ -4,6 +4,10 @@ import java.util.HashMap;
 
 public class Constants 
 {
+  /**
+ * Stores the predefined named constants and their numerical values.
+ * The constants are initialized when the class is loaded.
+ */
   public static final HashMap<String, Double> namedConstants = new HashMap<>();
 
     static 
