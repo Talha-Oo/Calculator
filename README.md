@@ -15,9 +15,9 @@ to run the calculator
 - Variable assignments, e.g. 5 = x
 - Named constants: pi, e, Answer, L
 #### Commands:
-**Vars** – displays stored variables.
-**Clear** – clears stored variables.
-**Quit** – exits the calculator.
+- **Vars:**  displays stored variables.
+- **Clear:** clears stored variables.
+- **Quit:**  exits the calculator.
 
 The calculator also stores the latest result in ans.
 
