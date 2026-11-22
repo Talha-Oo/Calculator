@@ -31,7 +31,7 @@ public class CalculatorParser {
     // or 10 + x = L is not allowed
     private final ArrayList < String > unallowedVars = new ArrayList < String > (Arrays.asList("Quit",
         "Vars",
-        "Clear"));
+        "Clear", "sin", "sin", "Cos", "cos", "Log", "log", "Exp", "exp", "Neg", "neg"));
 
     /**
      * Used to parse the inputted string by the Calculator program

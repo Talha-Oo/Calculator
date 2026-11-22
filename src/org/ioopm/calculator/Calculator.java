@@ -33,7 +33,7 @@ public class Calculator {
       SymbolicExpression result;
       try {
         result = parser.parse(input, store);
-      } catch (SyntaxErrorException e) {
+      } catch (Exception e) {
         System.out.println(e.getMessage());
         continue;
       }
