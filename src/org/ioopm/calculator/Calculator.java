@@ -36,6 +36,9 @@ public class Calculator {
       } catch (SyntaxErrorException e) {
         System.out.println(e.getMessage());
         continue;
+      } catch (IllegalExpressionException e) {
+        System.out.println(e.getMessage());
+        continue;
       }
 
       if (result.isCommand()) {
